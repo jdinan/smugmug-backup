@@ -1,0 +1,8 @@
+SMUGMUG BACKUP
+
+This is a simple set of scripts for maintaining a local backup of files in your
+Smugmug account.  This software is probably broken --- use at your own risk!
+
+smug-bak.pl   -- Backup script
+smug-oauth.pl -- Establish oauth session with smugmug (run this first)
+smug-up.pl    -- Upload files to smugmug
