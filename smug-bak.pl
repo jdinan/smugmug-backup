@@ -342,6 +342,10 @@ sub process_album {
     my $images = smug_req("method=smugmug.images.get", "AlbumID=$album->{id}",
             "AlbumKey=$album->{Key}", "LastUpdated=".SMBConfig::param("backup.last_timestamp"));
 
+    if ($images->{Album}->{ImageCount} <= 0) {
+        printf("%2d:  * Warning: album is empty (ImageCount == $images->{Album}->{ImageCount})\n", $tid);
+    }
+
     return unless exists $images->{Album}->{Images}->{Image};
     $images->{Album}->{Images}->{Image} = ensure_array($images->{Album}->{Images}->{Image});
 
